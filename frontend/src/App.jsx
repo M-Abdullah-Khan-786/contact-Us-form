@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [contact, setContact] = useState({
@@ -17,6 +19,30 @@ const App = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8800/api/v1/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        toast.success(data.message);
+        setContact({
+          name: "",
+          email: "",
+          phone: "",
+          services: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
