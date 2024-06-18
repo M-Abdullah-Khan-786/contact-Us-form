@@ -27,3 +27,5 @@ MongoDB
 Mongoose
 
 CORS
+
+Tailwind CSS
