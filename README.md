@@ -6,16 +6,24 @@ This project is a full-stack web application for a "Contact Us" form. It uses Re
 **Features**
 
 User-friendly contact form interface
+
 Stores form submissions in MongoDB
+
 Uses Express to handle form submissions
+
 CORS enabled for cross-origin requests
 
 
 **Technologies Used**
 
 React
+
 Node.js
+
 Express.js
+
 MongoDB
+
 Mongoose
+
 CORS
